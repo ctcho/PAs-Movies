@@ -134,11 +134,13 @@ class MovieData
     test_line = @directory_name + "/" + @file_path.to_s + ".test"
     test_contents = open(test_line)
     test_line_set = test_contents.readlines
+    puts Time.now #Metric that measures when the algorithm starts.
     i = 0
     if number != 0 #if we're only interested in a small number of predictions
       while i < number
         if i % 1000 == 0
-          puts "Prediction dataset generation in progress: #{((i / number) * 100).to_f}%"
+          puts "Prediction dataset generation in progress: #{(i.to_f / number.to_f) * 100}%"
+          puts Time.now #Metric that measures how long it took to get to this point
         end
         line = test_line_set[i].split("\t")
         if @predictions.has_key?(line[0]) # Remember, an entry is [user_id, movie_id, rating, timestamp]
@@ -153,7 +155,8 @@ class MovieData
       for line in test_line_set # same as before, just with more iterations.
         i += 1
         if i % 1000 == 0
-          puts "Prediction dataset generation in progress: #{((i / 20000) * 100).to_f}%"
+          puts "Prediction dataset generation in progress: #{(i.to_f / 20000.to_f) * 100}%"
+          puts Time.now
         end
         data = line.split("\t")
         if @predictions.has_key?(data[0])
@@ -183,6 +186,7 @@ class MovieData
 # Check every user in the list if they've seen the movie in question.
 # Take the average of the total ratings of every user that saw the movie, and return that as the predicted rating.
   def predict(user, movie)
+    #puts Time.now  #Metric that measures when the prediction algorithm starts
     list = most_similar(user)
     rate_total = 0
     total_number = 0
@@ -193,8 +197,10 @@ class MovieData
       end
     end
     if total_number != 0
+      #puts Time.now #Metric that measures when the prediction algorithm ends
       return rate_total/total_number
     else
+      #puts Time.now
       return 0
     end
   end

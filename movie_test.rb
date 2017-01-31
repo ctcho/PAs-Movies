@@ -25,7 +25,7 @@ class MovieTest
 #Since the mean method does this for the entire set, I thought it would be good to make a method for it for future use.
 # Calculating error is explained in the mean method.
 def error(predicted, actual)
-  return ((predicted - actual)/actual).abs.to_f
+  return ((predicted.to_f - actual.to_f)/actual.to_f).abs
 end
 
 #Standard deviation is calculated by taking the summation of the square of every value in a set minus the mean.
