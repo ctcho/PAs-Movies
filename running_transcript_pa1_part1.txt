@@ -1,0 +1,48 @@
+vagrant@precise64:/vagrant/Desktop/CS166b/PAs$ cd PA1_Part1
+vagrant@precise64:/vagrant/Desktop/CS166b/PAs/PA1_Part1$ ruby movie_data.rb
+Insert the data file: /vagrant/Desktop/CS166b/u.data
+A few popular (and not so popular movies) by id:
+50
+100
+181
+258
+286
+1
+288
+174
+294
+127
+300
+1546
+1366
+1564
+1574
+1671
+1325
+1341
+1352
+1626
+1659
+A list of users most similar to user 1 by id:
+303
+291
+299
+308
+95
+301
+276
+178
+59
+92
+293
+727
+747
+749
+758
+804
+846
+864
+880
+889
+916
+vagrant@precise64:/vagrant/Desktop/CS166b/PAs/PA1_Part1$
