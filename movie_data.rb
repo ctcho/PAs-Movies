@@ -201,7 +201,7 @@ class MovieData
       return rate_total/total_number
     else
       #puts Time.now
-      return 0
+      return 3
     end
   end
 
@@ -215,25 +215,3 @@ class MovieData
     return @movies[movie].keys
   end
 end
-
-
-#And here are the commands that show that the program works as intended.
-#reviewer = MovieData.new("/vagrant/Desktop/CS166b/ml-100k/ml-100k", :u1)
-#popular_movies = reviewer.popularity_list()
-#i = 0
-#puts "A few popular (and not so popular movies) by id:"
-#while i < popular_movies.length
-#  if i <= 10 || i + 10 > popular_movies.length() - 1 # first 10 and last 10 datas
-#    puts popular_movies[i][0]
-#  end
-#  i += 1
-#end
-#puts "A list of users most similar to user 1 by id: "
-#j = 0
-#similar_users = reviewer.most_similar("1")
-#while j < similar_users.length()
-#  if j <= 10 || j + 10 > similar_users.length() - 1 # first 10 and last 10 users
-#    puts similar_users[j]
-#  end
-#  j += 1
-#end
